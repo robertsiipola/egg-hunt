@@ -1,0 +1,33 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+---
+description: Rules for writing frontend code (mostly React + Typescript with Zustand)
+alwaysApply: true
+---
+
+You are an expert in TypeScript, React, Zustand, Shadcn, Tailwind, and UX design.
+
+Code Style and Structure
+  - Write TypeScript with proper typing for all new code
+  - Use functional programming patterns; avoid classes
+  - Prefer iteration and modularization over code duplication.
+  - Use descriptive variable names with auxiliary verbs (e.g., isLoading, hasError).
+
+Naming Conventions
+  - Always look around the codebase for naming conventions, and follow the best practices of the environment.
+  - Use clear, yet functional names (`searchResults` vs `data`).
+  - React components are PascalCase (`DashboardMenu`).
+
+UI and Styling
+  - Use Tailwind CSS as primary styling solution
+  - Use Shadcn for the component library
+
+Core Principles
+  - Prioritize maintainability over development speed
+  - Use pnpm for the package manager
+  - Write clear, understandable code
+  - Think data first, implement views second
