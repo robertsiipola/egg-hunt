@@ -13,13 +13,13 @@ interface Clue {
 }
 
 const CLUES: Clue[] = [
-  { id: 1, name: 'Kinder Egg #1', clue: 'Look under the big green chair.', image: '/images/kinder-egg-1.png' },
-  { id: 2, name: 'Kinder Egg #2', clue: 'Check inside your pink backpack.', image: '/images/kinder-egg-2.png' },
-  { id: 3, name: 'Kinder Egg #3', clue: 'Behind the red flower pot on the porch.', image: '/images/kinder-egg-3.png' },
-  { id: 4, name: 'Kinder Egg #4', clue: 'Next to Dad\'s slippers by the sofa.', image: '/images/kinder-egg-4.png' },
-  { id: 5, name: 'Mignon Egg', clue: 'Tucked in the pages of your favorite storybook.', image: '/images/mignon-egg.png' },
-  { id: 6, name: 'Chocolate Bunny', clue: 'Beside the garden gnome near the fence.', image: '/images/chocolate-bunny.png' },
-  { id: 7, name: 'Giant Kinder Egg', clue: 'In the trunk of the family car.', image: '/images/giant-kinder-egg.png' },
+  { id: 1, name: 'First Clue', clue: 'Lainasin vähän koripalloasi, mutta jätin sen viereen yllätyksen!', image: '/images/first-clue-v2.png' },
+  { id: 2, name: 'Second Clue', clue: 'Jätin hikiset vaatteeni ja yllätyksen pyykkikoriinne!', image: '/images/second-clue-v2.png' },
+  { id: 3, name: 'Third Clue', clue: 'Jumppaamisen jälkeen minulle oli kova jano ja heitin vesipullon pullokoriin.', image: '/images/third-clue-v2.png' },
+  { id: 4, name: 'Fourth Clue', clue: 'Juomisen jälkeen halusin piirtää kynilläsi! Jätin askartelulaatikkoon jotain kivaa!', image: '/images/fourth-clue-v2.png' },
+  { id: 5, name: 'Fifth Clue', clue: 'Leikin myös vähän pehmoleluillasi! Jätin niille myös herkkuja.', image: '/images/fifth-clue-v2.png' },
+  { id: 6, name: 'Sixth Clue', clue: 'Sen jälkeen minullekin tuli nälkä ja leivoin pipareita!', image: '/images/sixth-clue-v2.png' },
+  { id: 7, name: 'Seventh Clue', clue: 'Ja ennen kuin lähdin teiltä kävin vielä vessassa, jonne jätin ison yllätyksen!', image: '/images/seventh-clue-v2.png' },
 ];
 
 export default function Home() {
@@ -28,6 +28,7 @@ export default function Home() {
 
   const startHunt = () => setStep(0);
   const handleFound = () => setStep((prev) => prev + 1);
+  const handleBack = () => setStep((prev) => Math.max(0, prev - 1));
   const restartHunt = () => setStep(-1);
 
   return (
@@ -48,6 +49,7 @@ export default function Home() {
 
       {step >= 0 && step < CLUES.length && (
         <>
+          <p className="text-2xl font-semibold text-center px-4 text-gray-800 mb-4">{CLUES[step].clue}</p>
           <Image
             src={CLUES[step].image}
             alt={`Image for ${CLUES[step].name}`}
@@ -55,28 +57,39 @@ export default function Home() {
             height={200}
             className="rounded-lg shadow-lg mb-4"
           />
-          <p className="text-xl text-center px-4">{CLUES[step].clue}</p>
-          <Button
-            onClick={handleFound}
-            size="lg"
-            variant="default"
-            className="bg-green-400 hover:bg-green-500 text-white"
-          >
-            I Found It!
-          </Button>
+          <div className="flex space-x-4">
+            {step > 0 && (
+              <Button
+                onClick={handleBack}
+                size="lg"
+                variant="default"
+                className="bg-gray-400 hover:bg-gray-500 text-white"
+              >
+                Takaisin
+              </Button>
+            )}
+            <Button
+              onClick={handleFound}
+              size="lg"
+              variant="default"
+              className="bg-green-400 hover:bg-green-500 text-white"
+            >
+              I Found It!
+            </Button>
+          </div>
         </>
       )}
 
       {step >= CLUES.length && (
         <>
-          <h1 className="text-3xl font-bold text-center">You found them all! Happy Easter!</h1>
+          <h1 className="text-3xl font-bold text-center">Löysit kaikki yllätykset! Hyvää pääsiäistä.</h1>
           <Button
             onClick={restartHunt}
             size="lg"
             variant="default"
             className="bg-purple-400 hover:bg-purple-500 text-white"
           >
-            Restart Hunt
+            Aloita alusta!
           </Button>
         </>
       )}
