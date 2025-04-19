@@ -74,7 +74,7 @@ export default function Home() {
               variant="default"
               className="bg-green-400 hover:bg-green-500 text-white"
             >
-              I Found It!
+              Löysin!
             </Button>
           </div>
         </>
