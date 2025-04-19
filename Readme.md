@@ -1,6 +1,6 @@
 # Egg Hunt App
 
-A simple Next.js web application to power an Easter‐style egg hunt. The app presents a sequence of clues; when the user marks the current egg as “found,” the next clue is revealed until all seven treats have been located, and can be deployed instantly to Vercel.
+A simple Next.js web application to power an Easter‐style egg hunt. The app presents a sequence of clues; when the user marks the current egg as “found,” the next clue is revealed until all seven treats have been located, and can be deployed instantly to Vercel. The app should be optimized to work on an ipad.
 
 ---
 
